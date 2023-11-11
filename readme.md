@@ -1,3 +1,12 @@
+# Installing
+```
+npm install twitcher
+```
+or
+```
+yarn add twitcher
+```
+
 # Setup
 ### Step 1:
 > Get your app information from https://dev.twitch.tv/console
