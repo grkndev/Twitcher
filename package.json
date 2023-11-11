@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test/script.js"
   },
   "keywords": ["twitch","twitcher","twitchtv","twitchjs","twitch-api","api","twitch-clip","clip","clips","twitch user","twitch data",""],
   "author": "GweepCreative <gweepcreative@gmail.com>",
