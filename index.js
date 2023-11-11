@@ -121,6 +121,89 @@ class Twitcher {
     }
 
     /**
+     * Get Game
+     * @param {Number} game_id - Twitch game id
+     * @returns {object} - Twitch Game
+     * @example
+     * let game = await client.getGameById("123456789")
+     * console.log(game)
+     * //response:
+     * {
+            "data": [
+                {
+                    "id": "33214",
+                    "name": "Fortnite",
+                    "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg",
+                    "igdb_id": "1905"
+                }
+                ...
+            ],
+            "pagination": {
+            "cursor": "eyJiIjpudWxsLCJhIjp7IkN"
+        }
+     */
+    async getGameById(game_id) {
+        if (typeof game_id !== "number") {
+            game_id = Number(game_id)
+            if (isNaN(game_id)) return {
+                error: "Game id must be number",
+                success: false
+            }
+        }
+        const res = await axios.get("https://api.twitch.tv/helix/games?id=" + game_id, {
+            headers: {
+                Authorization: `Bearer ${this.#token}`,
+                "Client-Id": this.#client_id
+            }
+        });
+        if (res.data.data.length == 0) return {
+            error: "Game not found",
+            success: false
+        }
+        return {
+            success: true,
+            data: res.data.data
+        }
+    }
+
+    /**
+     * Get Game
+     * @param {string} game_name - Twitch game name
+     * @returns {object} - Twitch Game
+     * @example
+     * let game = await client.getGameByName("Fortnite")
+     * console.log(game)
+     * //response:
+     * {
+     *  success: true,
+     * data: [
+     * {
+     * id: '33214',
+     * name: 'Fortnite',
+     * box_art_url: 'https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg',
+     * igdb_id: '1905'
+     * }
+     * ]
+     * }
+     */
+    async getGameByName(game_name) {
+        const res = await axios.get("https://api.twitch.tv/helix/games?name=" + game_name, {
+            headers: {
+                Authorization: `Bearer ${this.#token}`,
+                "Client-Id": this.#client_id
+            }
+        });
+        if (res.data.data.length == 0) return {
+            error: "Game not found",
+            success: false
+        }
+        return {
+            success: true,
+            data: res.data.data
+        }
+    }
+
+    /**
     * Search Twitch Channel
     * @param {string} channelName - Twitch channel name
     * @returns {object} - Twitch channel
