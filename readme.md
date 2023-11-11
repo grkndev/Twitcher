@@ -106,6 +106,72 @@ console.log(clip)
 }
 ```
 
+## getGameByName(game_name)
+> Paramaters
+- game_name(string): Twitch game name
+
+> Response
+- Game Data
+
+### Example Usage
+```js
+import Twitcher from "twitcher"
+let client = new Twitcher({
+    token:"YOUR TOKEN",
+    client_id:"YOUR CLIENT ID",
+})
+let game = await client.getGameByName("Fortnite")
+console.log(game)
+```
+
+### Example Response
+```js
+{
+  success: true,
+  data: [
+    {
+      id: '33214',
+      name: 'Fortnite',
+      box_art_url: 'https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg',
+      igdb_id: '1905'
+    }
+  ]
+}
+```
+
+## getGameById(game_id)
+> Paramaters
+- game_id(Number): Twitch game id
+
+> Response
+- Game Data
+
+### Example Usage
+```js
+import Twitcher from "twitcher"
+let client = new Twitcher({
+    token:"YOUR TOKEN",
+    client_id:"YOUR CLIENT ID",
+})
+let game = await client.getGameById("509658")
+console.log(game)
+```
+
+### Example Response
+```js
+{
+  success: true,
+  data: [
+    {
+      id: '509658',
+      name: 'Just Chatting',
+      box_art_url: 'https://static-cdn.jtvnw.net/ttv-boxart/509658-{width}x{height}.jpg',
+      igdb_id: ''
+    }
+  ]
+}
+```
+
 ## searchChannel(query)
 > Paramaters
 - query: Twitch channel name
