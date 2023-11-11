@@ -1,0 +1,29 @@
+{
+  "name": "twitcher",
+  "version": "1.0.4",
+  "description": "Module where you can easily access the Twitch API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["twitch","twitcher","twitchtv","twitchjs","twitch-api","api","twitch-clip","clip","clips","twitch user","twitch data",""],
+  "author": "GweepCreative",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GweepCreative/Twitcher.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GweepCreative/Twitcher/issues"
+  },
+  "homepage": "https://github.com/GweepCreative/Twitcher#readme"
+}
